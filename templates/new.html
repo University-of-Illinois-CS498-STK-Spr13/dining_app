@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Join a Table{% endblock %}
+{% block content %}
+<h1>
+  New Table
+</h1>
+<p>
+For simplicity, we don't even require that you join your own table.
+
+<h3>Join a table!</h3>
+
+<form action="/new" method="POST">
+  <div>
+    <label>Table Name:
+      <span class="small">Add a name to this</span>
+    </label>
+    <input type="text" name="name"></input>
+  </div>
+  <div>
+    <label>&nbsp;</label>
+    <input type="submit" class="button" value="Create Table"></input>
+  </div>
+</form>
+
+</p>
+
+{% endblock %}
+

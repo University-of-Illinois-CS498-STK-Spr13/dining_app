@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Join a Table{% endblock %}
+{% block content %}
+<h1>
+  Dining Quietly
+</h1>
+<p>
+Blah blah yup yup yaddah yaddah.
+
+<h3>Join a table!</h3>
+<ul>
+  {% for table in tables %}
+    <li>
+      <a href="{{ uri_for('join',table_id=table.key.id())}}">{{ table.name }}</a>
+    </li>
+  {% else %}
+    <li>No tables open</li>
+  {% endfor %}
+</ul>
+
+<a href="/new" class="button">New Table</a>
+
+</p>
+
+{% endblock %}
+

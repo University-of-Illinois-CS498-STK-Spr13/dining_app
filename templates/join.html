@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Join a Table{% endblock %}
+
+{% block content %}
+
+<script>
+  $(document).ready(function() {
+    $("#cost").change(function() {
+      percent = tip.getPercentage(3);
+      cost = $("#cost").val()
+
+      toTip = percent * cost;
+
+     $("#tip").html(" (With Tip): " +  toTip);
+  });
+  });
+
+</script>
+
+<h1>
+  Joining Table {{name}}
+</h1>
+<p>
+
+<h3>Please fill out your dining information:</h3>
+
+<form action="" method="POST">
+  <div>
+    <label>How much cash do you have?
+      <span class="small">Integers only</span>
+    </label>
+    <input type="number" name="cash"></input>
+  </div>
+  <div>
+    <label>Do you have a credit card?
+      <span class="small">(with you)</span>
+    </label>
+    <input type="checkbox" name="credit">
+  </div>
+  <div>
+    <label>Do you want to pay for everything?
+      <span class="small">&nbsp;</span>
+    </label>
+    <input type="checkbox" name="everything">
+  </div>
+  <div>
+    <label>How much does your meal cost?
+      <span class="small">Ignore tax and cents</span>
+    </label>
+    <input type="number" name="cost" id="cost">
+    <span id="tip"></span>
+  </div>
+   
+  <div>
+    <label>&nbsp;</label>
+    <input type="submit" class="button" value="Submit"></input>
+  </div>
+</form>
+
+</p>
+
+{% endblock %}
+

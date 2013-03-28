@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+    <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/static/tip.js"></script>
+    {% block scripts %}{% endblock %}
+    <meta name="viewport" content="width=960">
+</head>
+<body>
+  <div id="topbar">
+    <span style="float: right">{{user}} <a href="{{logout}}" class="button">sign out</a></span>
+      Dining Quietly
+    <br><span id="sublogo">An app for socially challenged diners</span>
+  </div>
+  
+  <div id="leftnav">
+    <ul>
+      <li><a href="/">Main</a>
+    </ul>
+  </div>
+
+  <div class="container">
+    <div id="content">{% block content %}{% endblock %}</div>
+  <div id="footer" style="margin-top: 60px">
+    {% block footer %}
+    Copyright 2013 by Murph
+    {% endblock %}
+  </div>
+</body>

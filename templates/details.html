@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Table Details{% endblock %}
+{% block content %}
+<h1>
+  Table {{name}}
+</h1>
+{% if resolved %}
+<h3>Done! Your orders: {{result}}</h3>
+{% else %}
+<h3>Participants</h3>
+{% for participant in participants %}
+<p>
+User: {{participant.user}}
+</p>
+{% endfor %}
+
+<a href="{{uri_for('resolve',table_id=table_id)}}" class="button">Resolve</a>
+
+<script>
+  var id;
+  id = window.setInterval(function() {
+    $.ajax({
+      url: '{{uri_for('result',table_id=table_id)}}'
+    })
+    .done(function(result) {
+      console.log("result: " + result);
+      if(result !== "") {
+        location.reload(true);
+      }
+    });
+  
+  },1000);
+</script>
+{% endif %}
+
+
+{% endblock %}
+
